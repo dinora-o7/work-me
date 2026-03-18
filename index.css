@@ -1,0 +1,21 @@
+ :root{
+    --rang-1:#FA7921;
+    --rang-2:#7de80a;
+    --orqa-fon-rangi:#cce8f7;
+    --matn-olcham:24px;
+    --burchak-radius:50px;
+
+}
+
+h1{
+    color:var(--rang-2);
+    font-size: var(--matn-olcham);
+    background-color: var(--orqa-fon-rangi);
+    border-radius: var(--burchak-radius);
+}
+
+p{
+    color: var(--rang-2);
+    font-size: var(--matn-olcham);
+    background-color: var(--orqa-fon-rangi);
+}

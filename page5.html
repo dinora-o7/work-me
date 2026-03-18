@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Page 1</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+body { margin:0; font-family:sans-serif; overflow:hidden; }
+.page {
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    display:flex; justify-content:center; align-items:center;
+    background: #219fbb; color:#b8dcee; font-size:2em;
+    transition: transform 0.8s ease;
+}
+</style>
+</head>
+<body>
+<div class="page" id="page1">
+    Page 5
+
+    <button onclick="nextPage()">Next</button>
+</div>
+
+<script>
+function nextPage() {
+    // page1 chapga surilib ketadi
+    document.getElementById('page1').style.transform = "translateX(-100%)";
+    // 0.8s keyin page2 ga o'tish
+    setTimeout(() => {
+        window.location.href = "page6.html";
+    }, 800);
+}
+</script>
+<center>
+<div class="page">
+    <div class="card">
+      <h1>Dolzarblik</h1>
+  
+      <p>
+        O‘zbekistonda bolalarni erta kasbga yo‘naltirish
+        tizimi yetarli darajada rivojlanmagan.
+      </p>
+  
+      <p>
+        Bozorda bu yo‘nalishda deyarli raqobat yo‘q.
+      </p>
+  
+      <p>Bu — katta imkoniyat </p>
+  
+      <button onclick="nextPage('page6.html')">Daromadi</button>
+    </div>
+    </div>
+</center>
+
+</body>
+</html>

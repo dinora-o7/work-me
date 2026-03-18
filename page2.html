@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>Page 2</title>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+body { margin:0; font-family:sans-serif; overflow:hidden; }
+.page {
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    display:flex; justify-content:center; align-items:center;
+    background: #15ac95; color:#f0e6e6; font-size:2em;
+    transition: transform 0.8s ease;
+}
+</style>
+</head>
+<body>
+<div class="page" id="page2">
+    Page 2
+      
+          <button onclick="nextPage('page3.html')">Keyingi ➡</button>
+        </div>
+      </div>
+
+    <button onclick="nextPage()">Next</button>
+</div>
+
+<script>
+function nextPage() {
+    document.getElementById('page2').style.transform = "translateX(-100%)";
+    setTimeout(() => {
+        window.location.href = "page3.html";
+    }, 800);
+}
+</script>
+
+
+
+<div class="page">
+    <div class="card">
+      <h1>Muammo</h1>
+  
+      <ul>
+        <li> Bolalar o‘z qobiliyatini bilmaydi</li>
+        <li> Ota-onalar yo‘naltira olmaydi</li>
+        <li> Noto‘g‘ri kasb tanlash ko‘p</li>
+      </ul>
+  
+      <p>Natija: vaqt va imkoniyatlar yo‘qotiladi</p>
+
+
+      <button onclick="nextPage()">Yichim</button>
+
+      
+</body>
+</html>

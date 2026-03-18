@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RayhonaNova</title>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #f0f4f8;
+    }
+
+
+    header{
+        background-color: #0C4767;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+    }
+
+    header h2{
+        font-size: 28px;
+    }
+
+    nav a{
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        font-size: 20px;
+    }
+
+    nav a:hover{
+        color: #75c2ec;
+    }
+
+
+    .about-section{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 80vh;
+        padding: 40px;
+        gap: 50px;
+        background: linear-gradient(to bottom, #75c2ec, #d0caca);
+        flex-wrap: wrap; 
+    }
+
+    .text{
+        max-width: 500px;
+    }
+
+    .text h1{
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+
+    .text p{
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+
+    .buttons{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .buttons a{
+        text-decoration: none;
+        background-color: #0C4767;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 6px;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+
+    .buttons a:hover{
+        background-color: #75c2ec;
+        color: #0C4767;
+    }
+
+    .profile{
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 6px solid white;
+    }
+
+    
+    footer{
+        background-color: #0C4767;
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 50px;
+        flex-wrap: wrap;
+    }
+
+    footer ul{
+        list-style: none;
+    }
+
+    footer ul li{
+        margin-bottom: 8px;
+    }
+
+    footer ul li a{
+        color: white;
+        text-decoration: none;
+    }
+
+    footer ul li a:hover{
+        color: #75c2ec;
+    }
+
+</style>
+</head>
+<body>
+
+<header>
+    <h2>Dinora</h2>
+    <nav>
+        <a href="./page1.html">Bosh sahifa</a>
+        <a href="#">Loyihalarim</a>
+        <a href="#">Qiziqishlarim</a>
+    </nav>
+</header>
+
+<main>
+    <section class="about-section">
+        <div class="text">
+            <h1>Salom</h1>
+            <p>Salom! Men Dinora, dasturchi va web dizaynerman. Kod yozish va kreativ web loyihalar yaratishni yaxshi ko‘raman. Shu yerda mening portfolio va qiziqishlarim bilan tanishishingiz mumkin.</p>
+            <div class="buttons">
+                <a href="./page1.html">Portfolio</a>
+            </div>
+        </div>
+        <img src="./my img.jpg" alt="Profil rasmi" class="profile">
+    </section>
+</main>
+
+<footer>
+    <h1>
+        Saidxonova's
+    </h1>
+    <ul>
+        <li><a href="./shahrim.html">Menind shahrim</a></li>
+        <li><a href="./unversetetim.html">Universiteim</a></li>
+        <li><a href="./dizayn.html">Dubay haqida</a></li>
+    </ul>
+    <ul>
+        <li><a href="//"> Kontakt:</a></li>
+        <li><a href="//"> Foydalanuvchi nom: dinow@gmail.com</a></li>
+        <li><a href="//">Tel raqam: 7700701807</a></li>
+        <li><a href="//"> Joylashuvi: Samarqand O'zbekiston</a></li>
+    </ul>
+</footer>
+
+</body>
+</html>
