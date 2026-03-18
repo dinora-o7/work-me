@@ -23,8 +23,8 @@ body {
     max-width: 700px;
     padding: 40px;
     border-radius: 20px;
-    background: linear-gradient(145deg, #1c1717, #090909);
-    box-shadow: 0 20px 50px rgba(29, 25, 25, 0.7);
+    background: linear-gradient(145deg, #020d30f0, #2d4374);
+    box-shadow: 0 20px 50px rgba(19, 17, 17, 0.7);
     text-align: center;
 
     transform-origin: left;
