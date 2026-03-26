@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>SmartKids Career Test</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #89ace2;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      background: rgb(243, 232, 232);
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: rgb(18, 15, 15);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    #result {
+      background: rgb(206, 231, 243);
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎓 SmartKids Test</h1>
+
+<form id="quiz">
+
+<!-- Mantiqiy -->
+<div class="question">
+  <p>1. Masala yechishni yoqtirasizmi?</p>
+  <input type="radio" name="q1" value="2"> Ha
+  <input type="radio" name="q1" value="1"> Ba’zida
+  <input type="radio" name="q1" value="0"> Yo‘q
+</div>
+
+<div class="question">
+  <p>2. Shaxmat o‘ynash yoqadimi?</p>
+  <input type="radio" name="q2" value="2"> Ha
+  <input type="radio" name="q2" value="1"> Ba’zida
+  <input type="radio" name="q2" value="0"> Yo‘q
+</div>
+
+<div class="question">
+    <p>3. Topishmoqlar yoqadimi?</p>
+    <input type="radio" name="q3" value="2"> Ha
+    <input type="radio" name="q3" value="1"> Ba’zida
+    <input type="radio" name="q3" value="0"> Yo‘q
+  </div>
+
+<!-- Ijodiy -->
+<div class="question">
+  <p>4. Rasm chizishni yoqtirasizmi?</p>
+  <input type="radio" name="q4" value="2"> Ha
+  <input type="radio" name="q4" value="1"> Ba’zida
+  <input type="radio" name="q4" value="0"> Yo‘q
+</div>
+
+<div class="question">
+  <p>5. Yangi g‘oyalar o‘ylab topasizmi?</p>
+  <input type="radio" name="q5" value="2"> Ha
+  <input type="radio" name="q5" value="1"> Ba’zida
+  <input type="radio" name="q5" value="0"> Yo‘q
+</div>
+
+<div class="question">
+    <p>6. Modaga qiziqasizmi?</p>
+    <input type="radio" name="q6" value="2"> Ha
+    <input type="radio" name="q6" value="1"> Ba’zida
+    <input type="radio" name="q6" value="0"> Yo‘q
+  </div>
+
+<!-- Texnik -->
+<div class="question">
+  <p>7. Texnikaga qiziqasizmi?</p>
+  <input type="radio" name="q7" value="2"> Ha
+  <input type="radio" name="q7" value="1"> Ba’zida
+  <input type="radio" name="q7" value="0"> Yo‘q
+</div>
+
+<div class="question">
+  <p>8. Telefon/kompyuter bilan ishlash yoqadimi?</p>
+  <input type="radio" name="q8" value="2"> Ha
+  <input type="radio" name="q8" value="1"> Ba’zida
+  <input type="radio" name="q8" value="0"> Yo‘q
+</div>
+
+<div class="question">
+    <p>9. Kompyuterni tez o'zlashtirasizmi?</p>
+    <input type="radio" name="q9" value="2"> Ha
+    <input type="radio" name="q9" value="1"> Ba’zida
+    <input type="radio" name="q9" value="0"> Yo‘q
+  </div>
+  
+
+<!-- Ijtimoiy -->
+<div class="question">
+  <p>10. Odamlar bilan gaplashishni yoqtirasizmi?</p>
+  <input type="radio" name="q10" value="2"> Ha
+  <input type="radio" name="q10" value="1"> Ba’zida
+  <input type="radio" name="q10" value="0"> Yo‘q
+</div>
+
+<div class="question">
+  <p>11. Boshqalarga yordam berasizmi?</p>
+  <input type="radio" name="q11" value="2"> Ha
+  <input type="radio" name="q11" value="1"> Ba’zida
+  <input type="radio" name="q11" value="0"> Yo‘q
+</div>
+
+<div class="question">
+    <p>12. Ko'p odamlar oldida o'zingizni yaxshi his qilasizmi?</p>
+    <input type="radio" name="q12" value="2"> Ha
+    <input type="radio" name="q12" value="1"> Ba’zida
+    <input type="radio" name="q12" value="0"> Yo‘q
+  </div>
+
+<button type="button" onclick="calculate()">Natijani ko‘rish</button>
+
+</form>
+
+<div id="result"></div>
+
+<script>
+  function calculate() {
+  let scores = {
+    mantiqiy: 0,
+    ijodiy: 0,
+    texnik: 0,
+    ijtimoiy: 0
+  };
+
+  function getValue(name) {
+    let el = document.querySelector('input[name="' + name + '"]:checked');
+    return el ? Number(el.value) : 0;
+  }
+
+  // TO‘G‘RI taqsimlash (3 tadan savol)
+  scores.mantiqiy = getValue("q1") + getValue("q2") + getValue("q3");
+  scores.ijodiy   = getValue("q4") + getValue("q5") + getValue("q6");
+  scores.texnik   = getValue("q7") + getValue("q8") + getValue("q9");
+  scores.ijtimoiy = getValue("q10") + getValue("q11") + getValue("q12");
+
+  // maksimal ball = 6
+  let resultText = "<h2>Natija:</h2>";
+
+  for (let key in scores) {
+    let percent = Math.round((scores[key] / 6) * 100);
+    resultText += key + ": " + percent + "%<br>";
+  }
+
+  // Eng yuqori
+  let topSkill = Object.keys(scores).reduce((a, b) =>
+    scores[a] > scores[b] ? a : b
+  );
+
+  let career = "";
+
+  if (topSkill === "mantiqiy") {
+    career = "Dasturchi, Tahlilchi";
+  } else if (topSkill === "ijodiy") {
+    career = "Dizayner, Animator";
+  } else if (topSkill === "texnik") {
+    career = "Muhandis, IT mutaxassis";
+  } else {
+    career = "O‘qituvchi, Psixolog";
+  }
+
+  resultText += "<h3>Sizga mos kasblar:</h3>" + career;
+
+  document.getElementById("result").innerHTML = resultText;
+}
+</script>
+
+</body>
+</html>

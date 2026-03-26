@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<title>SmartKids Career – Bog‘cha o‘yin</title>
+<style>
+  body { font-family: Arial; background: #f0f8ff; text-align: center; padding: 20px; }
+  h1 { color: #333; }
+  .question { margin: 20px 0; }
+  img { width: 150px; height: 150px; margin: 10px; cursor: pointer; border-radius: 10px; border: 3px solid transparent; }
+  img.selected { border-color: #4CAF50; }
+  #result { margin-top: 30px; font-size: 18px; }
+  button { padding: 10px 20px; font-size: 16px; border-radius: 8px; border: none; background: #4CAF50; color: white; cursor: pointer; }
+</style>
+
+<style>
+    body {
+      font-family: Arial;
+      background: #89ace2;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .question {
+      background: rgb(243, 232, 232);
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background: #4CAF50;
+      color: rgb(18, 15, 15);
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    #result {
+      background: rgb(206, 231, 243);
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>🎨 Rangni tanlash o‘yini</h1>
+
+<div class="question">
+  <h3>Qaysi rang sizga yoqadi?</h3>
+ <p>🔴 <img src="https://via.placeholder.com/150/FF0000/FFFFFF?text=Qizil" alt="Qizil" onclick="selectOption('A', this)"></p> 
+ <p>🔵 <img src="https://via.placeholder.com/150/0000FF/FFFFFF?text=Ko‘k" alt="Ko‘k" onclick="selectOption('B', this)"></p> 
+ <p>🟢<img src="https://via.placeholder.com/150/00FF00/FFFFFF?text=Yashil" alt="Yashil" onclick="selectOption('C', this)"></p> 
+</div>
+
+<div class="question">
+  <h3>Qaysi shakl boshqalardan farq qiladi?</h3>
+ <p>▢<img src="https://via.placeholder.com/150/FFCC00/FFFFFF?text=Triangl" alt="Triangl" onclick="selectOption('A', this)"></p>
+  <p>▢<img src="https://via.placeholder.com/150/FFCC00/FFFFFF?text=Triangl" alt="Triangl" onclick="selectOption('B', this)"></p>
+ <p>◯<img src="https://via.placeholder.com/150/FFCC00/FFFFFF?text=Doira" alt="Doira" onclick="selectOption('C', this)"></p>
+</div>
+
+<button onclick="showResult()">Natijani ko‘rish</button>
+
+<div id="result"></div>
+
+<script>
+let answers = {};
+
+function selectOption(option, element) {
+  // Hamma rasmning borderini olib tashlash
+  let siblings = element.parentElement.querySelectorAll('img');
+  siblings.forEach(img => img.classList.remove('selected'));
+  
+  // Tanlangan rasmga class qo‘yish
+  element.classList.add('selected');
+  
+  // Savolga javob saqlash
+  let questionText = element.parentElement.querySelector('p').innerText;
+  answers[questionText] = option;
+}
+
+function showResult() {
+  let resultText = "<h2>Natija:</h2>";
+  
+  // Soddalashtirilgan natija
+  for (let question in answers) {
+    resultText += question + "<br>Tanlovingiz: " + answers[question] + "<br><br>";
+  }
+  
+  // Oddiy tavsiya
+  resultText += "<h3>Sizga mos qobiliyat:</h3>";
+  
+  // Misol: A = ijodiy, B = mantiqiy, C = texnik
+  let scores = { ijodiy: 0, mantiqiy: 0, texnik: 0 };
+  for (let q in answers) {
+    if (answers[q] === 'A') scores.ijodiy += 1;
+    if (answers[q] === 'B') scores.mantiqiy += 1;
+    if (answers[q] === 'C') scores.texnik += 1;
+  }
+
+  let topSkill = Object.keys(scores).reduce((a,b)=> scores[a]>scores[b]?a:b);
+  let career = "";
+  if(topSkill==="ijodiy") career="Dizayner, Animator";
+  if(topSkill==="mantiqiy") career="Dasturchi, Tahlilchi";
+  if(topSkill==="texnik") career="Muhandis, IT mutaxassis";
+
+  resultText += topSkill + " → " + career;
+
+  document.getElementById("result").innerHTML = resultText;
+}
+</script>
+
+</body>
+</html>
